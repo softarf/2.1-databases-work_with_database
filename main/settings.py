@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'phones',
 ]
 
@@ -52,6 +53,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'netology_import_phones',
+        'USER': 'postgres',
+        'PASSWORD': 'psdb',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -77,11 +80,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 ROOT_URLCONF = 'main.urls'
 
+# Здесь мы добавляем путь до шаблонов.
+TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [TEMPLATE_DIR, ],  # Путь до шаблонов
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -99,9 +104,12 @@ WSGI_APPLICATION = 'main.wsgi.application'
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# Здесь мы можем заменить язык отображения Django и часовой пояс.
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'  # Устанавливаем русский язык для окна приветствия.
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Yekaterinburg'    # Устанавливаем местный часовой пояс. 'Europe/Yekaterinburg' - не получилось.
 
 USE_I18N = True
 
