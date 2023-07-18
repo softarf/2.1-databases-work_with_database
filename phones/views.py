@@ -18,7 +18,7 @@ def show_catalog(request):
         elif sort_param == 'min_price':
             sort_param = 'price'
         else:
-            return HttpResponse(f"Неизвестный параметр сортировки: {sort_param}")
+            return HttpResponse(f"<p style='color: red'>Неизвестный параметр сортировки: {sort_param}</p>")
     template = 'catalog.html'
     products = Phone.objects.order_by(sort_param)
     context = {'phones': products}
