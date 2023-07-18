@@ -35,9 +35,9 @@ class Command(BaseCommand):
                                  price=phone['price'],
                                  release_date=phone['release_date'],
                                  lte_exists=phone['lte_exists'],
-                                 # TODO: Добавить создание поля Slug
+                                 # TODO: Добавить создание поля Slug. ... Сделал 18.07.23
                                  # Не дошёл до 'Преобразователя путей по умолчанию'. Сделал "в лоб", написал своё.
-                                 slug=to_slug(phone['name'])
+                                 # slug=to_slug(phone['name'])    # Переопределил метод save(). 18.07.23
             )
             # Считывание и обновление отдельного параметра.
             # Phone.objects.filter(id=phone['id']).update(slug=to_slug(phone['name']))
