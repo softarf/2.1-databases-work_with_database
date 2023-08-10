@@ -8,7 +8,8 @@
   <div class="container">
     <div class="header">
       <h5>
-        <a href="{% url 'catalog' %}">Вернуться в каталог</a>
+        <!-- Возвращается на страницу общего списка с сохранением последней сортировки -->
+        <a href="{% url 'catalog' %}?sort={{ sorted }}">Вернуться в каталог</a>
       </h5>
       <h1>{{ phone.name }}</h1>
     </div>
